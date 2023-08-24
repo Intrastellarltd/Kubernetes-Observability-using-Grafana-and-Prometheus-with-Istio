@@ -38,7 +38,7 @@ brew install istioctl
 
 #### "Demo" configuration profile for Istio
 
-For this application, we use the demo [configuration profile](https://istio.io/latest/docs/setup/additional-setup/config-profiles/). It’s selected to have a good set of defaults for testing, but there are other profiles for production or performance testing.
+For this application, the demo [configuration profile](https://istio.io/latest/docs/setup/additional-setup/config-profiles/) is used. It’s selected to have a good set of defaults for testing, but there are other profiles for production or performance testing.
 
 ```shell
 istioctl install --set profile=demo -y
@@ -76,7 +76,7 @@ k exec "$(k get pod -l app=ratings -o jsonpath='{.items[0].metadata.name}')" -c 
 
 ### Open the application to outside traffic
 
-The Bookinfo application is deployed but not accessible from the outside. To make it accessible, you need to create an Istio Ingress Gateway, which maps a path to a route at the edge of your mesh.
+The Bookinfo application is deployed but not accessible from the outside. To make it accessible, an Istio Ingress Gateway needs to be created, which maps a path to a route at the edge of the mesh.
 
 #### Associate this application with the Istio gateway:
 
@@ -126,13 +126,13 @@ Run the following command to retrieve the external address of the Bookinfo appli
 echo "http://$GATEWAY_URL/productpage"
 ```
 
-Paste the output from the previous command into your web browser and confirm that the Bookinfo product page is displayed.
+Paste the output from the previous command into a web browser and confirm that the Bookinfo product page is displayed.
 
 ---
 
 ### View the dashboard
 
-Istio integrates with several different telemetry applications. These can help you gain an understanding of the structure of your service mesh, display the topology of the mesh, and analyze the health of your mesh.
+Istio integrates with several different telemetry applications. These can help provide an understanding of the structure of the service mesh, display the topology of the mesh, and analyze the health of the mesh.
 
 Use the following instructions to deploy the Kiali dashboard, along with Prometheus, Grafana, and Jaeger.
 
